@@ -31,7 +31,10 @@ spec:
         app: synergychat-web
     spec:
       containers:
-      - image: docker.io/bootdotdev/synergychat-web:latest
+      - envFrom:
+        - configMapRef:
+            name: synergychat-web-configmap
+        image: docker.io/bootdotdev/synergychat-web:latest
         imagePullPolicy: Always
         name: synergychat-web
         resources: {}
